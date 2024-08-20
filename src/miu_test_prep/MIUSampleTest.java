@@ -198,7 +198,7 @@ public class MIUSampleTest {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("MIU Sample Test");
+	     System.out.println("MIU Sample Test");
 	
 	     int[] arr = new int[]{31,12,13};
 	     System.out.println(String.format("Q1) %s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
