@@ -147,17 +147,17 @@ public class MIUSampleTest {
 	public static void main(String[] args) {
 		System.out.println("MIU Sample Test");
 
-	    // int[] arr = new int[]{31,12,13};
-	    // System.out.println(String.format("%s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
+	     int[] arr = new int[]{31,12,13};
+	     System.out.println(String.format("%s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
 
-	    // arr = new int[]{};
-	    // System.out.println(String.format("%s diff = %d", Arrays.toString(arr), getEvenOddDifference(arr)));
+	     arr = new int[]{};
+	     System.out.println(String.format("%s diff = %d", Arrays.toString(arr), getEvenOddDifference(arr)));
 
-	    // char[] cArr = new char[]{'a', 'b', 'c'};
-	    // char[] result = getSubArray(cArr, 1, 0);
-	    // System.out.println(result == null ? "null" : String.format("%s subArray = %s", Arrays.toString(cArr), Arrays.toString(result)));
+	     char[] cArr = new char[]{'a', 'b', 'c'};
+	     char[] result = getSubArray(cArr, 1, 0);
+	     System.out.println(result == null ? "null" : String.format("%s subArray = %s", Arrays.toString(cArr), Arrays.toString(result)));
 
-	    // System.out.println(reverseInteger(-12345));
+	     System.out.println(reverseInteger(-12345));
 
 	    int[] arr1 = null;
 	    int[] arr2 = null;
