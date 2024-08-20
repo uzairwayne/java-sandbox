@@ -159,39 +159,28 @@ public class MIUSampleTest {
 	   * @param a
 	   * @return
 	   */
-	  static int findPOE(int[] a) {		  
-		  if(a.length == 0 || a.length == 1) {
-			  return a.length - 1;
+	  static int findPOE(int[] a) {
+		  int[] summedArr = new int[a.length];
+		  int poe = -1;
+
+		  for (int i = 0; i < a.length; i++) {
+			  int prevSum = i - 1 < 0 ? 0 : summedArr[i - 1];
+
+			  summedArr[i] = prevSum + a[i];
 		  }
-		  
-		  int startIdx = 0;
-		  int currPOE = startIdx + 1;
-		  int prePOEIdxSum = 0;
-		  int postPOEIdxSum = 0;
-		  
-		  while (currPOE < a.length) {
-			  if (postPOEIdxSum > prePOEIdxSum || startIdx == a.length) {
-				  if (postPOEIdxSum == prePOEIdxSum)
-					  return currPOE;
-				  if (currPOE == a.length - 1)
-					  break;
-				  startIdx = 0;
-				  prePOEIdxSum = 0;
-				  postPOEIdxSum = 0;
-				  currPOE++;
+
+		  for (int i = 0; i < summedArr.length; i++) {
+			  int prevSum = i - 1 < 0 ? 0 : summedArr[i - 1];
+			  int diff = summedArr[summedArr.length - 1] - summedArr[i];
+
+			  if (prevSum == diff) {
+				  poe = i;
+				  break;
 			  }
-			  
-			  if (startIdx < currPOE) {
-				  prePOEIdxSum += a[startIdx];
-			  } else if (startIdx > currPOE) {
-				  postPOEIdxSum += a[startIdx];
-			  }
-			  
-			  startIdx++;
+
 		  }
-		  
-		  
-		  return -1;
+
+		  return poe;
 	  }
 
 	/**
@@ -217,7 +206,7 @@ public class MIUSampleTest {
 	    System.out.println(String.format("Q5) %s %s diff = %s", Arrays.toString(arr1), Arrays.toString(arr2), Arrays.toString(getArrayIntersection(arr1, arr2))));
 	    
 	
-	    int[] arr3 = new int[]{1, 8, 3, 7, 10, 2};
+	    int[] arr3 = new int[]{1, 2, 10, 3, 4};
 	    int poeResult = findPOE(arr3);
 	    System.out.println(String.format("Q6) %s POE = %d", Arrays.toString(arr3), poeResult));
 	}
