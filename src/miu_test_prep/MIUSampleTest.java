@@ -87,6 +87,13 @@ public class MIUSampleTest {
 	    return subArr;
 	  }
 
+	  /**
+	   * Write a function to reverse an integer using numeric operators and without using any arrays or other data structures.
+	   * The signature of the function is:
+	   * int f(int n)
+	   * @param n
+	   * @return
+	   */
 	  static int reverseInteger(int n) {
 	    int rev = 0;
 	    int sign = 1;
@@ -140,29 +147,78 @@ public class MIUSampleTest {
 	    }
 	    return Arrays.copyOfRange(result, 0, resultIndex);
 	  }
+	  
+	  /**
+	   * Consider an array A with n of positive integers.
+	   * An integer idx is called a POE (point of equilibrium) of A,
+	   * if A[0] + A[1] + … + A[idx – 1] is equal to A[idx + 1] + A[idx + 2] + … + A[n – 1].
+	   * Write a function to return POE of an array, if it exists and -1 otherwise. 
+	   * The signature of the function is:
+	   * int f(int[] a)
+	   * @param a
+	   * @return
+	   */
+	  static int findPOE(int[] a) {		  
+		  if(a.length == 0 || a.length == 1) {
+			  return a.length - 1;
+		  }
+		  
+		  int startIdx = 0;
+		  int currPOE = startIdx + 1;
+		  int prePOEIdxSum = 0;
+		  int postPOEIdxSum = 0;
+		  
+		  while (currPOE < a.length) {
+			  if (postPOEIdxSum > prePOEIdxSum || startIdx == a.length) {
+				  if (postPOEIdxSum == prePOEIdxSum)
+					  return currPOE;
+				  if (currPOE == a.length - 1)
+					  break;
+				  startIdx = 0;
+				  prePOEIdxSum = 0;
+				  postPOEIdxSum = 0;
+				  currPOE++;
+			  }
+			  
+			  if (startIdx < currPOE) {
+				  prePOEIdxSum += a[startIdx];
+			  } else if (startIdx > currPOE) {
+				  postPOEIdxSum += a[startIdx];
+			  }
+			  
+			  startIdx++;
+		  }
+		  
+		  
+		  return -1;
+	  }
 
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("MIU Sample Test");
-
+		 System.out.println("MIU Sample Test");
+	
 	     int[] arr = new int[]{31,12,13};
-	     System.out.println(String.format("%s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
-
+	     System.out.println(String.format("Q1) %s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
+	
 	     arr = new int[]{};
-	     System.out.println(String.format("%s diff = %d", Arrays.toString(arr), getEvenOddDifference(arr)));
-
+	     System.out.println(String.format("Q2) %s diff = %d", Arrays.toString(arr), getEvenOddDifference(arr)));
+	
 	     char[] cArr = new char[]{'a', 'b', 'c'};
 	     char[] result = getSubArray(cArr, 1, 0);
-	     System.out.println(result == null ? "null" : String.format("%s subArray = %s", Arrays.toString(cArr), Arrays.toString(result)));
-
-	     System.out.println(reverseInteger(-12345));
-
+	     System.out.println(result == null ? "Q3) null" : String.format("Q3) %s subArray = %s", Arrays.toString(cArr), Arrays.toString(result)));
+	
+	     System.out.println("Q4) " + reverseInteger(-12345));
+	
 	    int[] arr1 = null;
 	    int[] arr2 = null;
-	    System.out.println(String.format("%s %s diff = %s", Arrays.toString(arr1), Arrays.toString(arr2), Arrays.toString(getArrayIntersection(arr1, arr2))));
-
+	    System.out.println(String.format("Q5) %s %s diff = %s", Arrays.toString(arr1), Arrays.toString(arr2), Arrays.toString(getArrayIntersection(arr1, arr2))));
+	    
+	
+	    int[] arr3 = new int[]{1, 8, 3, 7, 10, 2};
+	    int poeResult = findPOE(arr3);
+	    System.out.println(String.format("Q6) %s POE = %d", Arrays.toString(arr3), poeResult));
 	}
 
 }
