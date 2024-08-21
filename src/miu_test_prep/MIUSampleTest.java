@@ -188,6 +188,7 @@ public class MIUSampleTest {
 	 */
 	public static void main(String[] args) {
 	     System.out.println("MIU Sample Test");
+	     System.out.println("---------------");
 	
 	     int[] arr = new int[]{31,12,13};
 	     System.out.println(String.format("Q1) %s centered = %d", Arrays.toString(arr), checkIfArrayIsCentered(arr)));
@@ -209,6 +210,25 @@ public class MIUSampleTest {
 	    int[] arr3 = new int[]{1, 2, 10, 3, 4};
 	    int poeResult = findPOE(arr3);
 	    System.out.println(String.format("Q6) %s POE = %d", Arrays.toString(arr3), poeResult));
+        System.out.println("");
+	    
+
+	    System.out.println("MIU Official Practice Test");
+	    System.out.println("--------------------------");
+	    
+	    OfficialPracticeTest01 opt01 = new OfficialPracticeTest01();
+
+	    int[] arr4 = new int[]{1,1,1,1,1,2,1,1,1};
+	    System.out.println(String.format("Q1) %s laSum = %d", Arrays.toString(arr4), opt01.largestAdjacentSum(arr4)));
+	    
+	    int num = 9;
+	    int catlen = 1;
+	    System.out.println(String.format("Q2) num:%d catlen:%d result = %d", num, catlen, opt01.checkConcatenatedSum(num, catlen)));
+	    
+	    int[] arr5 = new int[]{-5,-5,-4,-4,-4,-3,-3,-2,-2,-2};
+	    int m = -5;
+	    int n = -2;
+	    System.out.println(String.format("Q3) arr:%s m:%d n:%d result = %d", Arrays.toString(arr5), m, n, opt01.isSquaredArray(arr5, m, n)));
 	}
 
 }
