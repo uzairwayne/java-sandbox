@@ -229,6 +229,34 @@ public class MIUSampleTest {
 	    int m = -5;
 	    int n = -2;
 	    System.out.println(String.format("Q3) arr:%s m:%d n:%d result = %d", Arrays.toString(arr5), m, n, opt01.isSquaredArray(arr5, m, n)));
+	    
+	    int[] arr6 = new int[]{5,2,0,1};
+	    int[] arr7 = new int[]{0,5,5,5,1,2,1};
+	    System.out.println(String.format("Q4) arr1:%s arr2:%s result = %d", Arrays.toString(arr6), Arrays.toString(arr7), opt01.equivalentArrays(arr6, arr7)));
+	    
+	    int[] arr8 = new int[]{1, 1, 2, 1, 2, 1, 1};
+	    System.out.println(String.format("Q5) arr:%s result = %d", Arrays.toString(arr8), opt01.is121Array(arr8)));
+	    
+	    int[] arr9 = new int[]{1,2,3,4,5,6,7,8,9,10};
+	    int n2 = 20;
+	    System.out.println(String.format("Q6) arr:%s n:%d result = %d", Arrays.toString(arr9), n2, opt01.hasNValues(arr9, n2)));
+	    
+	    int[] arr10 = new int[]{7,2,7,2,7,2,7,2,3,7,7};
+	    System.out.println(String.format("Q7) arr:%s result = %d", Arrays.toString(arr10), opt01.is235Array(arr10)));
+	    
+	    int n3 = 30;
+	    System.out.println(String.format("Q8) n:%d result = %d", n3, opt01.closestFibonacci(n3)));
+	    
+	    int[] arr11 = new int[]{1,1,1,1,1,1,1};
+	    System.out.println(String.format("Q9) arr:%s result = %d", Arrays.toString(arr11), opt01.isStepped(arr11)));
+	    
+	    int[] arr12 = new int[]{};
+	    int n4 = 0;
+	    System.out.println(String.format("Q10) arr:%s n:%d result = %d", Arrays.toString(arr12), n4, opt01.isPairedN(arr12, n4)));
+	    
+	    int[] arr13 = new int[]{0,0,0,0,0};
+	    System.out.println(String.format("Q11) arr:%s result = %d", Arrays.toString(arr13), opt01.computeWeightedSum(arr13)));
+	    
 	}
 
 }
