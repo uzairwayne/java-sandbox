@@ -257,6 +257,15 @@ public class MIUSampleTest {
 	    int[] arr13 = new int[]{0,0,0,0,0};
 	    System.out.println(String.format("Q11) arr:%s result = %d", Arrays.toString(arr13), opt01.computeWeightedSum(arr13)));
 	    
+	    int[] arr14 = new int[]{2};
+	    System.out.println(String.format("Q11) arr:%s result = %d", Arrays.toString(arr14), opt01.isMartian(arr14)));
+	    
+	    int[] arr15 = new int[]{1,3,9,27};
+	    System.out.println(String.format("Q11) arr:%s result = %d", Arrays.toString(arr15), opt01.isRapidlyIncreasing(arr15)));
+	    
+	    int[] arr16 = new int[]{-1001,-101,-21,-21,2,4,6};
+	    System.out.println(String.format("Q11) arr:%s result = %d", Arrays.toString(arr16), opt01.isTwinPaired(arr16)));
+	    
 	}
 
 }

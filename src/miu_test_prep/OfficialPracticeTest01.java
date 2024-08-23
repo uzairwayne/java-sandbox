@@ -234,4 +234,47 @@ public class OfficialPracticeTest01 {
 		
 		return evenWeightedSum + oddWeightedSum;
 	}
+	
+	int isMartian(int[] a) {
+		int oneCount = 0;
+		int twoCount = 0;
+		for (int i = 0; i < a.length; i++) {
+			if (a[i] == 1) oneCount++;
+			else if (a[i] == 2) twoCount++;
+			
+			if (i+1 < a.length && a[i] == a[i+1]) return 0;
+		}
+		
+		return oneCount > twoCount ? 1 : 0;
+	}
+	
+	int isRapidlyIncreasing(int[] a) {
+		int prevSum = a[0];
+		for (int i=1; i < a.length; i++) {
+			if (a[i] <= (2 * prevSum)) return 0;
+			
+			prevSum += a[i];
+		}
+		
+		return 1;
+	}
+	
+	int isTwinPaired(int[] a) {
+		int evenMin = Integer.MIN_VALUE;
+		int oddMin = Integer.MIN_VALUE;
+		
+		for (int n:a) {
+			if ((n & 1) == 1) {
+				if (n < oddMin) return 0;
+				
+				oddMin = n;
+			} else {
+				if (n < evenMin) return 0;
+				
+				evenMin = n;
+			}
+		}
+		
+		return 1;
+	}
 }
